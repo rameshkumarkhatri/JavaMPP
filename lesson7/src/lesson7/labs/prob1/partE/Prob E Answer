@@ -1,0 +1,19 @@
+Interface A has <<abstract>> method()
+B extend A
+C extend A
+
+class D implements B, C {
+
+    @Override
+    public void method() {
+
+    }
+
+}
+
+class D extends B, C {
+
+}
+
+1. If D is class then D will overrides the method otherwise it will throw compile time error. Class has high priority and this method implementation will work.
+2. If D is interface then it also has to override the method and we can call the super method of interface B or C

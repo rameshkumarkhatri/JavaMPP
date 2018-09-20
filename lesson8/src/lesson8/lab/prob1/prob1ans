@@ -1,0 +1,111 @@
+1. Short Answers:
+
+a)  Name two differences between imperative and functional programming
+    Imperative Programming is where state and order is important.
+    Imperative Programming is how to do and not thread safe and do have side effects like modifying enviroment.
+    Functional Programming is what to do and thread safe, simple, concise and parrallizeable.
+    Functional Programming, functions do not cause a change of state and dont have side effects.
+
+b)  Explain the meaning of declarative programming. Give an example.
+    Declarative progamming is the method is written by what is need regardless of how it is achieved. It supports functional programming. Make code more
+    self-documenting. Functions have referencial transparency. Functions are first-class citizens.
+    Example of declarative programming is Factorial by function recursion:
+
+    public static int factorial(int n) {
+    		return (n==0 || n==1) ? 1 : n * factorial(decrement(n));
+    	}
+
+    	private static int decrement(int n) {
+    		return n - 1;
+    	}
+
+
+    	public static void main(String[] args) {
+    		int input = 5;
+    		int output = factorial(input);
+    		System.out.printf("factorial(%d) = %d", input, output);
+    	}
+    }
+
+    In this function factorial is calculated by recursion and does not causing the change in variable which provided.
+
+c)  Explain the difference between functional interface, functor, and closure, and give examples of
+    each using Java 7 syntax
+
+    Functional Interface is that interface who have only one method which is abstract.
+    Functor is the implementation of that functional interface. it will be an object which acts like a function.
+    Closure is functor within the another class, which is cabale of remembering the state of enclosing objects. In Java 7, instances of member, local, and anonymous inner classes  are (essentially) closures, since they have full access to their enclosing object’s state.
+
+    Functional Interface example:
+
+    interface Comparator<T> {
+        abstract int compare(T t1, T t2);
+    }
+
+    Functor example:
+
+    public class SudentGradeComparator implements Comparator<Student> {
+    	   @Override
+    	   public int compare(Student s1, Student s2) {
+    		return s1.grade.compareTo(s2.grade);
+    	   }
+    }
+
+    Closure Example:
+
+    public class Student {
+        String name;
+        String grade;
+
+        Student(String name, String grade)
+        {
+        this.name = name;
+        this.grade = grade;
+        }
+
+    }
+
+    public class StudentGrade {
+        static enum TYPE {BY_GRADE, BY_NAME};
+
+        public void sort(List<Student> list, final TYPE type) {
+
+            Comparator<Student> com = new Comparator<Student>() {
+
+                @Override
+                public int compare(Student s1, Student s2) {
+                    if(type == BY_GRADE)
+                        return s1.grade.compareTo(s2.grade);
+                    else
+                        return s1.name.compareTo(s2.name);
+                }
+
+            }
+            Collections.sort(list, com);
+        }
+    }
+
+
+d)  Name three benefits of including functional style programming in Java
+        Programs are more compact, easier to write, and easier to read/understand
+        Programs are thread-safe
+        Easier to demonstrate correctness of functional programs
+        Easier to test; less likely that a test of a subroutine will fail tomorrow if it passed today since there are no side effects
+
+e) Express the functions defined below using Church’s lambda notation:
+
+    i. f(x) = x + 2x =>
+                         λxy.2x – y
+    ii. g(x,y) = y – x + xy =>
+                            λy - x - xy
+
+    iii. h(x,y,z) = z – (x + y) =>
+                                λz - (x+y)
+f)
+    i)  Parameters: --
+        Free variables: s, t
+    ii) Parameters: u, v
+           Free variables: a,b
+    iii) Parameters: s, t
+         Free variables: ignoreCase
+
