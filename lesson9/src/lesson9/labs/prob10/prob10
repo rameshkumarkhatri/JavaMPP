@@ -1,0 +1,15 @@
+A) public static void main(String[] args) {
+   IntStream ones = IntStream.generate(() -> 1).distinct();
+   ones.forEach(System.out::println);
+   }
+
+   Code will generate series of 1 but due to distinct it print only 1 once and code runs infinite.
+   We can fix it by limit(1)
+   IntStream ones = IntStream.generate(() -> 1).limit(1).distinct();
+
+B) System.out.println(Stream.of( "Bill",
+                   "Thomas", "Mary").reduce((s, s2) -> s+", "+s2).get().toString());
+
+C) IntStream myIntStream = IntStream.of(1,2,-344,90);
+           IntSummaryStatistics statistics = myIntStream.summaryStatistics();
+           System.out.println("Min : "+statistics.getMin()+" || Max : "+statistics.getMax());

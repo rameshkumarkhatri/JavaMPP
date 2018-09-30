@@ -52,10 +52,10 @@ public class Employee {
 		};
 		//expected output:
 		//[[Jim, 100000], [Jim, 75000], [Jim, 70000], [Joe, 59000], [Joe, 50000], [Rich, 88000], [Steve, 55000], [Tom, 80000]]
-		System.out.println(list.stream()
-				.sorted((x, y) -> x.name.compareTo(y.name))
-				.sorted((x, y) -> (x.salary > y.salary ? 1 : (x.salary < y.salary ? -1 : 0)))
-				.collect(Collectors.toList()));
+//		System.out.println(list.stream()
+//				.sorted((x, y) -> x.name.compareTo(y.name))
+//				.sorted((x, y) -> (x.salary > y.salary ? 1 : (x.salary < y.salary ? -1 : 0)))
+//				.collect(Collectors.toList()));
 
 		System.out.println(list.stream()
 				.sorted(Comparator.comparing(Employee::getName).thenComparing(

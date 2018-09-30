@@ -1,6 +1,9 @@
 package lesson9.labs.prob8;
+import javax.swing.text.html.Option;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Stream;
 
 public class Main {
 	List<OrderItem> orderItems = new ArrayList<>();
@@ -25,7 +28,17 @@ public class Main {
 		}
 		return false;
 	}
-	
+	private Optional<String> findProduct(String prodName, String str) {
+//       Optional<OrderItem> opt = orderItems.stream().;
+//        Optional.of(
+        Optional<String> s;
+//        s = orderItems.stream()
+//                //                flatMap(orderItem -> orderItem.getProduct().getProductName())
+//                .filter(item -> item.getProduct().getProductName().equals(prodName))
+//                .flatMap((orderItem -> orderItem.getProduct().getProductName()));
+        return null;
+	}
+
 	private void loadOrderItemData() {
 		orderItems.add(new OrderItem(new Product("1016", "Tools", 131.00), 3));
 		orderItems.add(new OrderItem(new Product("1017", "Fishing Rod", 111.00), 1));

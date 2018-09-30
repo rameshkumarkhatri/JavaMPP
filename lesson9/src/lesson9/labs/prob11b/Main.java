@@ -16,7 +16,7 @@ public class Main {
 		                  new Employee("Alice", "Richards", 101000),
 		                  new Employee("Donald", "Trump", 100000));
 		
-		
+		LambdaLibrary.NAME_100K.apply(list, 100000, 'N');
 	}
 
 }

@@ -3,6 +3,7 @@ package lesson9.labs.prob7;
 import java.util.*;
 import java.util.function.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Main {
 
@@ -21,7 +22,11 @@ public class Main {
 	//Using this ordering, this method sorts the list as part of 
 	//a stream pipeline, and prints to the console
 	public static void ordering1(List<Integer> list) {
-		System.out.println(/* implement */);
+
+		System.out.println(/* implement */list.stream().sorted(
+				Comparator.comparing(x -> Math.abs((Integer) x)).thenComparing(y -> (Integer) y))
+				.collect(Collectors.toList()));
+
 	}
 	
 	//Orders words by first reversing each and comparing 
@@ -34,7 +39,12 @@ public class Main {
 	//Using this ordering, this method sorts the list as part of 
 	//a stream pipeline, and prints to the console
 	public static void ordering2(List<String> words) {
-		System.out.println(/* implement */);
+		System.out.println(/* implement */
+			words.stream().sorted(
+					Comparator.comparing(x -> new StringBuilder(x).reverse().toString())
+			).collect(Collectors.toList())
+
+		);
 				
 	}
 
